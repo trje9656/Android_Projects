@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -21,5 +22,10 @@ fun punchName(view: View){
     punchText.text = "Take That " + name + "!"
 
 }
+
+    fun punchImage(view: View){
+        val imagePunch=findViewById<ImageView>(R.id.face_image)
+        imagePunch.setImageResource(R.drawable.facepunch)
+    }
 
 }
