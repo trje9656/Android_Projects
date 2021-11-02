@@ -16,16 +16,25 @@ class MainActivity : AppCompatActivity() {
 
 fun punchName(view: View){
     val editName = findViewById<EditText>(R.id.editTextFace)
+    val imagePunch=findViewById<ImageView>(R.id.face_image)
     val name = editName.text
 
     val punchText = findViewById<TextView>(R.id.punch_msg)
     punchText.text = "Take That " + name + "!"
+    imagePunch.setImageResource(R.drawable.henryface)
 
 }
 
-    fun punchImage(view: View){
+    fun punchImage(view: View) {
         val imagePunch=findViewById<ImageView>(R.id.face_image)
-        imagePunch.setImageResource(R.drawable.facepunch)
-    }
 
+        //imagePunch.setImageResource(R.drawable.facepunch)
+
+            imagePunch.setImageResource(R.drawable.facepunch)
+
+
+
+
+
+    }
 }
