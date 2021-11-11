@@ -11,31 +11,57 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 
 class MainActivity : AppCompatActivity() {
 
+    var orderString: String = ""
+    var totalString: String = ""
+
+    var total: Int = 10
+
+    lateinit var  radioGroup : RadioGroup
+        lateinit var  messageTextView : TextView
+    lateinit var  totalTextView : TextView
+        lateinit var  layoutRoot : ConstraintLayout
+    lateinit var  checkBox1 : CheckBox
+        lateinit var  checkBox2 : CheckBox
+    lateinit var  checkBox3 : CheckBox
+        lateinit var  checkBox4 : CheckBox
+    lateinit var  checkBox5 : CheckBox
+    lateinit var  checkBox6 : CheckBox
+    lateinit var  spinner : Spinner
+        lateinit var  switch : SwitchMaterial
+    var fillingId = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+         //radioGroup = findViewById<RadioGroup>(R.id.sandSize)
+        radioGroup = findViewById(R.id.sandSize)
+         messageTextView = findViewById(R.id.orderText)
+         totalTextView = findViewById(R.id.textViewTotal)
+         layoutRoot = findViewById(R.id.root_layout)
+         checkBox1 = findViewById<CheckBox>(R.id.checkHam)
+         checkBox2 = findViewById(R.id.checkLettuce)
+         checkBox3 = findViewById(R.id.checkSwiss)
+         checkBox4 = findViewById(R.id.checkOnion)
+         checkBox5 = findViewById(R.id.checkTomato)
+         checkBox6 = findViewById(R.id.checkMayo)
+         spinner = findViewById(R.id.spinner)
+         switch = findViewById(R.id.wheatSwitch)
+
+
+
     }
 
     fun createSandwich(view: View) {
         var filling: CharSequence = ""
-        var toppinglist = "" //String
-        var total = 10
+        var toppinglist: String = "" //String
+        total = 10
+
+         fillingId = radioGroup.checkedRadioButtonId
 
         //views
-        val radioGroup = findViewById<RadioGroup>(R.id.sandSize)
-        val fillingId = radioGroup.checkedRadioButtonId
-        val messageTextView = findViewById<TextView>(R.id.orderText)
-        val totalTextView = findViewById<TextView>(R.id.textViewTotal)
-        val layoutRoot = findViewById<ConstraintLayout>(R.id.root_layout)
-        val checkBox1 = findViewById<CheckBox>(R.id.checkHam)
-        val checkBox2 = findViewById<CheckBox>(R.id.checkLettuce)
-        val checkBox3 = findViewById<CheckBox>(R.id.checkSwiss)
-        val checkBox4 = findViewById<CheckBox>(R.id.checkOnion)
-        val checkBox5 = findViewById<CheckBox>(R.id.checkTomato)
-        val checkBox6 = findViewById<CheckBox>(R.id.checkMayo)
-        val spinner = findViewById<Spinner>(R.id.spinner)
-        val switch = findViewById<SwitchMaterial>(R.id.wheatSwitch)
+
+
 
         if (fillingId == -1) {
             Log.i("if statement", "$fillingId")
@@ -92,12 +118,16 @@ class MainActivity : AppCompatActivity() {
 
             //textview
             if (!switch.isChecked) {
-                messageTextView.text = "You'd like a white $filling sub $toppinglist $location"
+                orderString = "You'd like a white $filling sub $toppinglist $location"
+            } else {
+                orderString = "You'd like a wheat $filling sub $toppinglist $location"
             }
-            else {
-                messageTextView.text = "You'd like a wheat $filling sub $toppinglist $location"
-            }
-            totalTextView.text = "Total is $" + total.toString()
+            totalString = "Total is $" + total.toString()
+            messageTextView.text = orderString
+            totalTextView.text = totalString
         }
     }
+
+
+
 }
