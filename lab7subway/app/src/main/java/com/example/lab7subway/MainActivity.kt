@@ -10,6 +10,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val radioGroup = findViewById<RadioGroup>(R.id.sandSize)
         val fillingId = radioGroup.checkedRadioButtonId
         val messageTextView = findViewById<TextView>(R.id.orderText)
+        val totalTextView = findViewById<TextView>(R.id.textViewTotal)
         val layoutRoot = findViewById<ConstraintLayout>(R.id.root_layout)
         val checkBox1 = findViewById<CheckBox>(R.id.checkHam)
         val checkBox2 = findViewById<CheckBox>(R.id.checkLettuce)
@@ -40,14 +43,14 @@ class MainActivity : AppCompatActivity() {
             val sizeSnackbar =
                 Snackbar.make(layoutRoot, "Please select a size", Snackbar.LENGTH_SHORT)
             sizeSnackbar.show()
-            
+
         } else {
             Log.i("else statement", "$fillingId")
             filling = findViewById<RadioButton>(fillingId).text
 
-            if (switch.isChecked) {
+            /*if (switch.isChecked) {
                 filling = switch.text.toString() + " $filling"
-            }
+            }*/
 
             //checkboxes
             if (checkBox1.isChecked) {
@@ -88,7 +91,13 @@ class MainActivity : AppCompatActivity() {
 
 
             //textview
-            messageTextView.text = "You'd like $filling tacos $toppinglist $location"
+            if (!switch.isChecked) {
+                messageTextView.text = "You'd like a white $filling sub $toppinglist $location"
+            }
+            else {
+                messageTextView.text = "You'd like a wheat $filling sub $toppinglist $location"
+            }
+            totalTextView.text = "Total is $" + total.toString()
         }
     }
 }
