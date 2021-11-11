@@ -2,17 +2,149 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/orderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/sandwichPlaceholder"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/wheatSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:text="@string/bread_type"
+        app:layout_constraintBottom_toTopOf="@+id/sandSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/sandSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginBottom="43dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/checkHam"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/small"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radioMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/medium"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radioLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/large"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/checkHam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginBottom="107dp"
+        android:text="@string/ham"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkLettuce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="@string/lettuce"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/checkOnion"
+        app:layout_constraintTop_toTopOf="@+id/checkHam" />
+
+    <CheckBox
+        android:id="@+id/checkSwiss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/swiss"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/checkTomato"
+        app:layout_constraintTop_toTopOf="@+id/checkLettuce" />
+
+    <CheckBox
+        android:id="@+id/checkOnion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/onion"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/checkHam"
+        app:layout_constraintTop_toBottomOf="@+id/checkHam" />
+
+    <CheckBox
+        android:id="@+id/checkMayo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mayo"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/checkLettuce"
+        app:layout_constraintTop_toTopOf="@+id/checkOnion" />
+
+    <CheckBox
+        android:id="@+id/checkTomato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="@string/tomato"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/checkLettuce"
+        app:layout_constraintTop_toTopOf="@+id/checkMayo" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="382dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="481dp"
+        android:layout_marginBottom="29dp"
+        android:entries="@array/location"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSandwich"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/buttonSandwich"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="149dp"
+        android:onClick="createSandwich"
+        android:text="@string/EatFresh"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

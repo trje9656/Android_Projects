@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">lab7subway</string>
+    <string name="bread_type">wheat</string>
+    <string name="small">5 inch</string>
+    <string name="medium">10 inch</string>
+    <string name="large">12 inch</string>
+    <string name="lettuce">lettuce</string>
+    <string name="ham">ham</string>
+    <string name="swiss">swiss</string>
+    <string name="onion">onion</string>
+    <string name="tomato" >tomato</string>
+    <string name="mayo">mayo</string>
+    <string name="sandwichPlaceholder">sand</string>
+    <string name="EatFresh">EatFresh</string>
+    <string-array name="location">
+        <item>the Hill</item>
+        <item>29th St.</item>
+        <item>Pearl St.</item>
+    </string-array>
 </resources>
