@@ -10,8 +10,9 @@
     <string name="onion">onion</string>
     <string name="tomato" >tomato</string>
     <string name="mayo">mayo</string>
-    <string name="sandwichPlaceholder">sand</string>
+    <string name="sandwichPlaceholder">Place Order</string>
     <string name="EatFresh">EatFresh</string>
+    <string name="totalPlaceholder">Total is $0</string>
     <string-array name="location">
         <item>the Hill</item>
         <item>29th St.</item>
