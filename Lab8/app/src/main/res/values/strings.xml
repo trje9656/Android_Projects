@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Lab8</string>
+    <string name="fun_sites">fun sites</string>
+    <string name="personalityLinks">Personality Sites</string>
+    <string name="coinbutton">Coin flipper</string>
+    <string name="EightballButton">8ball</string>
+    <string name="blackjackButton">blackjack</string>
+    <string name="personalitySites">personality sites</string>
+    <string name="RPGButton">RPG Stats Generator</string>
+    <string name="BackstoryButton">Backstory Generator</string>
 </resources>
