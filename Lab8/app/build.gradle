@@ -4,9 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     defaultConfig {
+        configurations.all {
+            resolutionStrategy { force 'androidx.core:core-ktx:1.7.0' }
+        }
         applicationId "com.example.lab8"
         minSdk 24
         targetSdk 30
